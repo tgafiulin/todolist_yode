@@ -1,0 +1,20 @@
+.todolist {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__add-todo {
+        display: flex;
+        margin-bottom: 20px;
+
+        input {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #1effbc;
+            margin-right: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            width: 100%;
+        }
+    }
+}

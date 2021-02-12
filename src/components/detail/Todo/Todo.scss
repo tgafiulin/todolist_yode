@@ -1,0 +1,28 @@
+input[type=checkbox] {
+    display: none;
+}
+
+.todo {
+    padding: 15px 40px;
+    border-bottom: 1px solid #1effbc;
+    box-sizing: border-box;
+
+    &--done {
+        position: relative;
+        border-bottom-color: transparent;
+        background: #1effbc;
+        color: #fff;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            border-bottom: 2px solid #fff;
+            border-left: 2px solid #fff;
+            height: 7px;
+            width: 15px;
+            transform: translateY(-50%) rotate(-45deg); 
+        }
+    }
+}
