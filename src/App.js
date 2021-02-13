@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import NotesList from './components/main/NotesList/NotesList';
-import NoteWrapper from './components/detail/NoteWrapper/NoteWrapper';
+import NotesList from './components/pages/home/NotesList/NotesList';
+import NoteWrapper from './components/pages/note/NoteWrapper/NoteWrapper';
 import Button from './components/common/Button/Button';
 import {
   BrowserRouter as Router,

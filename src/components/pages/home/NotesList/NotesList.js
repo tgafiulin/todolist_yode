@@ -1,7 +1,6 @@
-import React from 'react';
 import './NotesList.scss'
 import { useSelector } from 'react-redux'
-import NoteItem from '../NoteItem/NoteItem'
+import NoteItem from 'components/pages/home/NoteItem/NoteItem'
 
 function NotesList () {
     const notes = useSelector(state => state.notes.notes)

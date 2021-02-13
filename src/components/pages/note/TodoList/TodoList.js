@@ -1,8 +1,8 @@
 import './TodoList.scss'
-import Todo from '../Todo/Todo'
 import { useState } from 'react'
-import Button from '../../common/Button/Button'
-import Input from '../../common/Input/Input'
+import Todo from 'components/pages/note/Todo/Todo'
+import Button from 'components/common/Button/Button'
+import Input from 'components/common/Input/Input'
 
 function TodoList({note}) {
     const {todoList, largestIdTodo} = note;

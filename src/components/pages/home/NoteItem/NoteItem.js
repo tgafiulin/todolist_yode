@@ -1,9 +1,8 @@
-import React from 'react';
 import './NoteItem.scss'
 import { Link } from "react-router-dom";
-import Button from "../../common/Button/Button";
+import Button from "components/common/Button/Button";
+import { deleteNote } from 'app/reducers/notesReducer'
 import { useDispatch } from 'react-redux'
-import { deleteNote } from '../../../app/reducers/notesReducer'
 
 function NoteItem ({note}) {
     const {id, title, todoList} = note;

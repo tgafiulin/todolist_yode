@@ -1,8 +1,7 @@
-import React from 'react';
 import './NoteWrapper.scss'
 import { useParams } from "react-router-dom";
-import NewNote from '../NewNote/NewNote';
-import Note from '../Note/Note';
+import NewNote from 'components/pages/note/NewNote/NewNote';
+import Note from 'components/pages/note/Note/Note';
 
 function NoteWrapper () {
     const { id } = useParams();

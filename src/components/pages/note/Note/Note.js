@@ -1,6 +1,6 @@
 import './Note.scss'
 import { useSelector } from 'react-redux'
-import TodoList from '../TodoList/TodoList'
+import TodoList from 'components/pages/note/TodoList/TodoList'
 
 function Note ({id}) {
     const notes = useSelector(state => state.notes.notes);
