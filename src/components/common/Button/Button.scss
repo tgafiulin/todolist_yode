@@ -20,6 +20,30 @@
         background: rgba(30, 255, 188, 1);
         color: rgba(255, 255, 255, 1);
     }
+
+    &--red {
+        color: #FF6D1E;
+
+        &:hover {
+            background: #FF6D1E;
+        }
+    }
+
+    &--blue {
+        color: #007bff;
+
+        &:hover {
+            background: #007bff;
+        }
+    }
+
+    &--black {
+        color: #343a40;
+
+        &:hover {
+            background: #343a40;
+        }
+    }
 }
 
 
@@ -28,6 +52,7 @@
     background: none;
     outline: none;
     border: none;
+    top: 50%;
     right: 20px;
     width: 20px;
     height: 20px;
@@ -48,5 +73,6 @@
         top: 0;
         height: 100%;
         width: 100%;
+        transform: translateY(-50%);
     }
 }

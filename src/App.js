@@ -19,11 +19,13 @@ function App() {
               <div className="container">
                 <Switch>
                   <Route exact path="/">
-                    <h2>Заметки</h2>
-                    <Link to={'note/new'}><Button 
-                      className="button"
-                      value="Create new Note"
-                    /></Link>
+                    <h1>Заметки</h1>
+                    <Link to={'note/new'}>
+                      <Button 
+                        className="button"
+                        value="Create new Note"
+                      />
+                    </Link>
                     <NotesList />
                   </Route>
                   <Route path="/note/:id">
