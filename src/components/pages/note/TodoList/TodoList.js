@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 function TodoList({note, button}) {
     const {todoList, largestIdTodo, title} = note;
     const [newTodo, editTodo] = useState('')
-    const [newTodos, editTodoList] = useState(JSON.parse(JSON.stringify(todoList)));
+    const [newTodos, editTodoList] = useState(todoList.map(a => Object.assign({}, a)));
     const [tempTodos, editTempTodoList] = useState([]);
     const [openModal, toggleOpenModal] = useState(false);
     const [idTodo, editIdTodo] = useState('');
@@ -22,12 +22,12 @@ function TodoList({note, button}) {
     useEffect(() => {
         switch(button) {
             case 'reset':
-                editTempTodoList(JSON.parse(JSON.stringify(newTodos)));
-                editTodoList(JSON.parse(JSON.stringify(todoList)));
+                editTempTodoList(newTodos.map(a => Object.assign({}, a)));
+                editTodoList(todoList.map(a => Object.assign({}, a)));
                 break;
             case 'redo':
                 if (!tempTodos.length) break;
-                editTodoList(JSON.parse(JSON.stringify(tempTodos))); 
+                editTodoList(tempTodos.map(a => Object.assign({}, a))); 
                 break;
             case 'save':
                 dispatch(updateTodoList({
