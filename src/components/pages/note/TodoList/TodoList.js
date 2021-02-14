@@ -24,7 +24,6 @@ function TodoList({note, button}) {
             case 'reset':
                 editTempTodoList(JSON.parse(JSON.stringify(newTodos)));
                 editTodoList(JSON.parse(JSON.stringify(todoList)));
-                console.log(newTodos, tempTodos, newTodos === tempTodos);
                 break;
             case 'redo':
                 if (!tempTodos.length) break;
