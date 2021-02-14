@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const notesSlice = createSlice({
     name: 'notes',
-    initialState: {
+    initialState: JSON.parse(localStorage.getItem("todostate")) || {
         largestID: 2,
         notes: [
             {
@@ -48,7 +48,8 @@ const notesSlice = createSlice({
     },
     reducers: {
         incrementLargestID: (state) => {
-            state.largestID = state.largestID + 1
+            state.largestID = state.largestID + 1;
+            localStorage.setItem('todostate', JSON.stringify(state))
         },
         addNote: (state, action) => {
             state.notes.push({
@@ -57,9 +58,11 @@ const notesSlice = createSlice({
                 largestIdTodo: 0,
                 todoList: []
             })
+            localStorage.setItem('todostate', JSON.stringify(state))
         },
         deleteNote: (state, action) => {
             state.notes = state.notes.filter((note) => note.id !== action.payload);
+            localStorage.setItem('todostate', JSON.stringify(state))
         },
         updateTodoList: (state, action) => {
             const {id, todos, largestIdTodo} = action.payload;
@@ -70,6 +73,7 @@ const notesSlice = createSlice({
                 }
                 return note;
             })
+            localStorage.setItem('todostate', JSON.stringify(state))
             return state;
         }
     }
