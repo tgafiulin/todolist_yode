@@ -24,7 +24,7 @@ function NewNote () {
             <h1>Create New Note</h1>
             <Button onClick={back} value="back home" className="button button--red" />
         </div>
-        <AddInput placeholder="Enter title for new note" addNewItem={addNewNote} />
+        <AddInput placeholder="Enter title for new note" buttonValue="Create" addNewItem={addNewNote} />
     </div>
 }
 

@@ -16,10 +16,8 @@ function NotesList () {
         editIdNote(id);
     }
 
-    const handleModalClick = (clickYes) => {
-        if (clickYes) {
-            dispatch(deleteNote(idNote));
-        }
+    const acceptModal = () => {
+        dispatch(deleteNote(idNote));
         toggleOpenModal(false);
         editIdNote('');
     }
@@ -32,7 +30,7 @@ function NotesList () {
                 handleDelete={handleDeleteClick}
             />
         )}
-        {openModal ?  <DialogWindow accept={() => handleModalClick(true)} reject={() => handleModalClick(false)} /> : ''}
+        {openModal ?  <DialogWindow accept={() => acceptModal()} reject={() => toggleOpenModal(false)} /> : ''}
     </>
 }
 
