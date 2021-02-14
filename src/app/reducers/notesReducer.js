@@ -58,6 +58,7 @@ const notesSlice = createSlice({
                 largestIdTodo: 0,
                 todoList: []
             })
+            state.largestID++;
             localStorage.setItem('todostate', JSON.stringify(state))
         },
         deleteNote: (state, action) => {
