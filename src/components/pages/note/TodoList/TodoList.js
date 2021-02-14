@@ -15,6 +15,7 @@ function TodoList({note, button}) {
     const [tempTodos, editTempTodoList] = useState([]);
     const [openModal, toggleOpenModal] = useState(false);
     const [idTodo, editIdTodo] = useState('');
+    const [errorMessage, editErrorMessage] = useState('');
     const [currentLargestIdTodo, incrementLargestIdTodo] = useState(largestIdTodo);
     const dispatch = useDispatch();
     let history = useHistory();
@@ -55,6 +56,9 @@ function TodoList({note, button}) {
                 done: false
             })
             incrementLargestIdTodo(currentLargestIdTodo + 1);
+            editErrorMessage('')
+        } else {
+            editErrorMessage('field must not be empty')
         }
     }
 
@@ -96,6 +100,7 @@ function TodoList({note, button}) {
         <div className="todolist__add-todo">
             <Input value={newTodo} className="input" onKeyPress={(e) => addTodo(e, true)} onChange={(e) => editTodo(e.target.value)} placeholder="Add new Todo"/>
             <Button onClick={addTodo} value="add" className="button" />
+            <span>{errorMessage}</span>
         </div>
         {newTodos.map((todo) => 
             <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} toggleTodo={toggleTodo} editDesc={editDesc} />
