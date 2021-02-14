@@ -1,4 +1,3 @@
-import './NoteWrapper.scss'
 import { useParams } from "react-router-dom";
 import NewNote from 'components/pages/note/NewNote/NewNote';
 import Note from 'components/pages/note/Note/Note';

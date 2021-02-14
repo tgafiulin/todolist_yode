@@ -1,4 +1,3 @@
-import './NewNote.scss'
 import Input from 'components/common/Input/Input'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'

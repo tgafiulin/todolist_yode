@@ -1,4 +1,3 @@
-import './NotesList.scss'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import NoteItem from 'components/pages/home/NoteItem/NoteItem'
@@ -25,7 +24,7 @@ function NotesList () {
         editIdNote('');
     }
 
-    return <div className="noteslist">
+    return <>
         {notes.map((note) =>
             <NoteItem 
                 key={note.id}
@@ -34,7 +33,7 @@ function NotesList () {
             />
         )}
         {openModal ?  <DialogWindow accept={() => handleModalClick(true)} reject={() => handleModalClick(false)} /> : ''}
-    </div>
+    </>
 }
 
 export default NotesList;
