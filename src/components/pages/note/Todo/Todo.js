@@ -23,17 +23,15 @@ function Todo({todo, deleteTodo, toggleTodo, editDesc}) {
         }
     }
 
-    let todoJsx;
-
-    if (!edit) {
-        todoJsx = <div onClick={handleEditTodoDesc}>{todoDesc}</div>
-    } else {
-        todoJsx = <Input value={todoDesc} onChange={(e) => editTodoDesc(e.target.value)} onKeyPress={keyPress} />
-    }
-
     return <div className={done ? "todo todo--done" : "todo"}>
             <span onClick={() => toggleTodo(id)} className="todo__check"></span>
-            {todoJsx}
+            {
+                edit 
+                ?
+                <Input value={todoDesc} onChange={(e) => editTodoDesc(e.target.value)} onKeyPress={keyPress} />
+                :
+                <div onClick={handleEditTodoDesc}>{todoDesc}</div>
+            }
             <Button onClick={() => deleteTodo(id)} className="remove-btn"/>
         </div>
 }
