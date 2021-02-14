@@ -1,21 +1,18 @@
 import './TodoList.scss'
 import { useEffect, useState } from 'react'
 import Todo from 'components/pages/note/Todo/Todo'
-import Button from 'components/common/Button/Button'
-import Input from 'components/common/Input/Input'
 import DialogWindow from "components/common/DialogWindow/DialogWindow";
+import AddInput from 'components/pages/note/AddItem/AddItem'
 import { useDispatch } from 'react-redux';
 import { updateTodoList } from 'app/reducers/notesReducer'
 import { useHistory } from "react-router-dom";
 
 function TodoList({note, button}) {
     const {todoList, largestIdTodo, title} = note;
-    const [newTodo, editTodo] = useState('')
     const [newTodos, editTodoList] = useState(todoList.map(a => Object.assign({}, a)));
     const [tempTodos, editTempTodoList] = useState([]);
     const [openModal, toggleOpenModal] = useState(false);
     const [idTodo, editIdTodo] = useState('');
-    const [errorMessage, editErrorMessage] = useState('');
     const [currentLargestIdTodo, incrementLargestIdTodo] = useState(largestIdTodo);
     const dispatch = useDispatch();
     let history = useHistory();
@@ -41,25 +38,13 @@ function TodoList({note, button}) {
         }
     }, [button])
 
-    const addTodo = (e, press) => {
-        if (press) {
-            if (e.key !== 'Enter') {
-                return;
-            }
-        } 
-
-        if (newTodo) {
-            editTodo('');
-            newTodos.push({
-                id: currentLargestIdTodo + 1,
-                desc: newTodo,
-                done: false
-            })
-            incrementLargestIdTodo(currentLargestIdTodo + 1);
-            editErrorMessage('')
-        } else {
-            editErrorMessage('field must not be empty')
-        }
+    const addTodo = (todoTitle) => {
+        newTodos.push({
+            id: currentLargestIdTodo + 1,
+            desc: todoTitle,
+            done: false
+        })
+        incrementLargestIdTodo(currentLargestIdTodo + 1);
     }
 
     const deleteTodo = (id) => {
@@ -97,11 +82,7 @@ function TodoList({note, button}) {
 
     return <div className="todolist">
         <h2>{title}</h2>
-        <div className="todolist__add-todo">
-            <Input value={newTodo} className="input" onKeyPress={(e) => addTodo(e, true)} onChange={(e) => editTodo(e.target.value)} placeholder="Add new Todo"/>
-            <Button onClick={addTodo} value="add" className="button" />
-            <span>{errorMessage}</span>
-        </div>
+        <AddInput placeholder="Add new Todo" addNewItem={addTodo} />
         {newTodos.map((todo) => 
             <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} toggleTodo={toggleTodo} editDesc={editDesc} />
         )} 

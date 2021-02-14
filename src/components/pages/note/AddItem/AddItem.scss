@@ -1,0 +1,14 @@
+.add-input-block {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+
+    span {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        color: red;
+        font-size: .8em;
+    }
+}
