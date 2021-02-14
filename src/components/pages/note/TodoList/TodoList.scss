@@ -6,5 +6,7 @@
     &__add-todo {
         display: flex;
         margin-bottom: 20px;
+        width: 100%;
+        justify-content: space-between;
     }
 }

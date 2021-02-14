@@ -95,7 +95,7 @@ function TodoList({note, button}) {
         <h2>{title}</h2>
         <div className="todolist__add-todo">
             <Input value={newTodo} className="input" onKeyPress={(e) => addTodo(e, true)} onChange={(e) => editTodo(e.target.value)} placeholder="Add new Todo"/>
-            <Button onClick={addTodo} value="add" className="button button--small" />
+            <Button onClick={addTodo} value="add" className="button" />
         </div>
         {newTodos.map((todo) => 
             <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} toggleTodo={toggleTodo} editDesc={editDesc} />
